@@ -23,8 +23,6 @@ public class MetroHomePage {
     private final By fieldTo = By.xpath(".//input[contains(@placeholder, 'Куда')]");
 
     // локатор коллекций станций «Откуда» и «Куда» маршрута по имени класса
-    private final By routeCollection = By.className("route-list _init _live-events");
-
     private final By routeStationFromTo = By.className("route-details-block__terminal-station");
 
     // конструктор класса MetroHomePage с нужным параметром
@@ -92,8 +90,7 @@ public class MetroHomePage {
     // метод получения примерного времени маршрута
     public String getApproximateRouteTime(int routeNumber) {
         // возвращается текст из требуемого по номеру элемента из коллекции времен всех маршрутов
-        return driver.findElements(routeCollection).get(routeNumber)
-                .findElement(By.className("route-list-item__time")).getText();
+        return driver.findElements(By.className("route-list-item__time")).get(routeNumber).getText();
     }
 
     // метод проверки с ожиданием видимости станции метро
